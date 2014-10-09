@@ -48,3 +48,5 @@ try:
         n += 1
 except:
     print '\n[= end of reg =]'
+
+raw_input('Enter to end...')
