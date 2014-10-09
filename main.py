@@ -16,18 +16,14 @@ reg = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\Microsoft\Windows\Cu
 sub_key = _winreg.EnumKey(reg, 1)
 n = 2
 try:
-    while sub_key: # or try
+    while sub_key:
         reg = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall')
         sub_key = _winreg.EnumKey(reg, n)
-        mess = '|| ' +sub_key+ ' : '
+        mess = '|| ' + sub_key + ' : '
         sys.stdout.write(mess)
         sub_key = '\\'+sub_key
-        #print sub_key
         path = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall'+sub_key
-        #print path
         reg = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, path)
-        ## DisplayVersion
-        #key = ('', '', '')
         try:
             key = _winreg.EnumValue(reg, 0)
         except:
@@ -49,4 +45,4 @@ try:
 except:
     print '\n[= end of reg =]'
 
-raw_input('Enter to end...')
+raw_input('\nEnter to end...')
