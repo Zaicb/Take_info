@@ -3,13 +3,15 @@
 #    / _ \| / _` | ' \ V / _` | '_/ _` / _ \
 #   /_/ \_\_\__,_|_||_\_/\__,_|_| \__, \___/
 #                                 |___/
+#
+# take info by _winreg from Uninstall
+# List of installed programs on PC
 
 import os
 import sys
 import _winreg
 import win32api
 
-# take info by
 print '------------------------------------------------------------------'
 reg = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall')
 
@@ -37,10 +39,9 @@ try:
                 #print key[0]
                 k += 1
             sys.stdout.write(key[1])
-            print '\n------------------------------------------------------------------'
+            print ''
         except:
             print 'empty -('
-            print '------------------------------------------------------------------'
         n += 1
 except:
     print '\n[= end of reg =]'
