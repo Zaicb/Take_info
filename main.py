@@ -28,7 +28,7 @@ try:
             key = _winreg.EnumValue(reg, 0)
         except:
             print 'err -<'
-            n+=1
+            n += 1
             continue
         k = 1
         try:
