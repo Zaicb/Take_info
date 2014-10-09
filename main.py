@@ -1,4 +1,5 @@
-#      _   _        __   __
+# -*- coding: utf-8 -*-
+#        _   _        __   __
 #     /_\ | |__ _ _ \ \ / /_ _ _ _ __ _ ___
 #    / _ \| / _` | ' \ V / _` | '_/ _` / _ \
 #   /_/ \_\_\__,_|_||_\_/\__,_|_| \__, \___/
@@ -7,10 +8,8 @@
 # take info by _winreg from Uninstall
 # List of installed programs on PC
 
-import os
 import sys
 import _winreg
-import win32api
 
 print '------------------------------------------------------------------'
 reg = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall')
