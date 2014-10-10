@@ -20,27 +20,45 @@ try:
     while sub_key:
         reg = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall')
         sub_key = _winreg.EnumKey(reg, n)
-        mess = '|| ' + sub_key + ' : '
-        sys.stdout.write(mess)
+        #mess = '|| ' + sub_key + ' : '
+        #sys.stdout.write(mess)
         sub_key = '\\'+sub_key
         path = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall'+sub_key
         reg = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, path)
         try:
             key = _winreg.EnumValue(reg, 0)
         except:
-            print 'err -<'
+            print '=no access to reg_key'
             n += 1
             continue
-        k = 1
+        k = 0
+
+        d_name = 'No DName'
+        pd_name = 'No PDName'
+        d_ver = 'No ver'
+        i_path = 'No path'
+
         try:
-            while key[0] != 'DisplayVersion':
+            while 1: # DisplayName  ParentDisplayName InstallLocation
                 key = _winreg.EnumValue(reg, k)
-                #print key[0]
+
+                if key[0] == 'DisplayName':
+                    d_name = key[1]
+                if key[0] == 'ParentDisplayName':
+                    pd_name = key[1]
+                if key[0] == 'DisplayVersion':
+                    d_ver = key[1]
+                if key[0] == 'InstallLocation':
+                    i_path = key[1]
+
                 k += 1
-            sys.stdout.write(key[1])
+            sys.stdout.write(d_name)
+            sys.stdout.write(pd_name)
+            sys.stdout.write(d_ver)
+            sys.stdout.write(i_path)
             print ''
         except:
-            print 'empty -('
+            print '=no values'
         n += 1
 except:
     print '\n[= end of reg =]'

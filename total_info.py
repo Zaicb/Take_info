@@ -5,4 +5,5 @@
 #   /_/ \_\_\__,_|_||_\_/\__,_|_| \__, \___/
 #                                 |___/
 #
+# create .bat or .sys from .txt or program code and send info to .txt or 'a'
 # List of total data(info) on PC
