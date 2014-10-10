@@ -49,13 +49,12 @@ try:
         if d_name != 'err_a':
             sys.stdout.write(d_name)
         if d_ver != 'err_a':
-            sys.stdout.write('\n   Ver[ ')
+            sys.stdout.write('\n   Ver -> ')
             sys.stdout.write(d_ver)
-            sys.stdout.write('] ')
         if i_path != 'err_a':
-            sys.stdout.write('\n   PATH[ ')
+            sys.stdout.write('\n   PATH-> ')
             sys.stdout.write(i_path)
-            sys.stdout.write(' ]')
+        print ''
         n += 1
 except:
     print '\n[= end of reg =]'
