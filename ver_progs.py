@@ -55,7 +55,7 @@ try:
         if i_path != 'err_a':
             sys.stdout.write('\n   PATH[ ')
             sys.stdout.write(i_path)
-            sys.stdout.write('] ')
+            sys.stdout.write(' ]')
         n += 1
 except:
     print '\n[= end of reg =]'
