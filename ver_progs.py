@@ -33,10 +33,10 @@ try:
             continue
         k = 0
 
-        d_name = 'No DName'
-        pd_name = 'No PDName'
-        d_ver = 'No ver'
-        i_path = 'No path'
+        d_name = ' -No DName- '
+        pd_name = ' -No PDName- '
+        d_ver = ' -No ver- '
+        i_path = ' -No path- '
 
         try:
             while 1: # DisplayName  ParentDisplayName InstallLocation
@@ -52,13 +52,14 @@ try:
                     i_path = key[1]
 
                 k += 1
-            sys.stdout.write(d_name)
-            sys.stdout.write(pd_name)
-            sys.stdout.write(d_ver)
-            sys.stdout.write(i_path)
+
             print ''
         except:
-            print '=no values'
+            print ''
+        sys.stdout.write(d_name)
+        sys.stdout.write(pd_name)
+        sys.stdout.write(d_ver)
+        sys.stdout.write(i_path)
         n += 1
 except:
     print '\n[= end of reg =]'
