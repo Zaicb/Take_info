@@ -23,27 +23,19 @@ try:
         sub_key = '\\'+sub_key
         path = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall'+sub_key
         reg = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, path)
-        try:
-            key = _winreg.EnumValue(reg, 0)
-        except:
-            print '=no access to reg_key'
-            n += 1
-            continue
+
         k = 0
 
-        d_name = ' -No DName- '
-        pd_name = ' -No PDName- '
-        d_ver = ' -No ver- '
-        i_path = ' -No path- '
+        d_name = 'err_a'
+        d_ver = 'err_a'
+        i_path = 'err_a'
 
         try:
-            while 1: # DisplayName  ParentDisplayName InstallLocation
+            while 1: # DisplayName InstallLocation
                 key = _winreg.EnumValue(reg, k)
 
                 if key[0] == 'DisplayName':
                     d_name = key[1]
-                if key[0] == 'ParentDisplayName':
-                    pd_name = key[1]
                 if key[0] == 'DisplayVersion':
                     d_ver = key[1]
                 if key[0] == 'InstallLocation':
@@ -54,10 +46,16 @@ try:
             print ''
         except:
             print ''
-        sys.stdout.write(d_name)
-        sys.stdout.write(pd_name)
-        sys.stdout.write(d_ver)
-        sys.stdout.write(i_path)
+        if d_name != 'err_a':
+            sys.stdout.write(d_name)
+        if d_ver != 'err_a':
+            sys.stdout.write(' Ver[ ')
+            sys.stdout.write(d_ver)
+            sys.stdout.write('] ')
+        if i_path != 'err_a':
+            sys.stdout.write(' PATH[ ')
+            sys.stdout.write(i_path)
+            sys.stdout.write('] ')
         n += 1
 except:
     print '\n[= end of reg =]'
