@@ -12,12 +12,10 @@ import sys
 import _winreg
 
 print '------------------------------------------------------------------'
-reg = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall')
 
-sub_key = _winreg.EnumKey(reg, 1)
-n = 2
+n = 0
 try:
-    while sub_key:
+    while 1:
         reg = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall')
         sub_key = _winreg.EnumKey(reg, n)
         #mess = '|| ' + sub_key + ' : '
